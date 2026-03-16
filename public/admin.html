@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+padding:40px;
+}
+
+.box{
+background:white;
+padding:20px;
+width:400px;
+border-radius:10px;
+position:relative;
+}
+
+input{
+padding:6px;
+margin:5px;
+}
+
+button{
+padding:8px 14px;
+cursor:pointer;
+}
+.logout{
+position:absolute;
+top:10px;
+right:10px;
+background:#ff4d4f;
+color:white;
+border:none;
+border-radius:6px;
+padding:6px 12px;
+cursor:pointer;
+}
+.save{
+background:#28a745;
+color:white;
+border:none;
+border-radius:6px;
+padding:8px 16px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Admin Panel</h2>
+
+<button class="logout" onclick="logout()">ออกจากระบบ</button>
+
+<div>
+เลข 6 ตัว
+<input id="number" maxlength="6">
+</div>
+
+<div>
+วันที่
+<input id="date" type="date">
+</div>
+
+<div>
+เวลาเริ่มหมุน
+<input id="spinStart" type="time">
+</div>
+
+<div>
+เวลาออกผล
+<input id="drawTime" type="time">
+</div>
+
+<br>
+
+<button class="save" onclick="save()">บันทึก</button>
+
+</div>
+<h3>ผลย้อนหลัง</h3>
+
+<table>
+<thead>
+<tr>
+<th>วันที่เดือนปี</th>
+<th>ผลลางวัน</th>
+</tr>
+</thead>
+
+<tbody id="historyTable"></tbody>
+
+</table>
+
+<script src="admin.js"></script>
+<script>
+
+async function loadHistory(){
+
+const res = await fetch("/api/history")
+const data = await res.json()
+
+let html=""
+
+data.reverse().slice(0,20).forEach(h=>{
+
+html+=`
+<tr>
+<td>${h.date}</td>
+<td>${h.number}</td>
+</tr>
+`
+
+})
+document.getElementById("historyTable").innerHTML = html
+
+}
+
+loadHistory()
+setInterval(loadHistory,2000)
+async function logout(){
+
+ await fetch("/api/logout")
+
+ location.href="/login.html"
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ประวัติผลหวย</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:40px
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+table{
+background:white;
+margin:auto;
+border-collapse:collapse;
+width:400px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>ผลย้อนหลัง</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>วันที่</th>
+<th>เลข</th>
+</tr>
+</thead>
+
+<tbody id="historyTable"></tbody>
+
+</table>
+
+<script>
+
+async function loadHistory(){
+
+const res = await fetch("/api/history")
+const data = await res.json()
+
+let html=""
+
+data.reverse().forEach(h=>{
+
+html+=`
+<tr>
+<td>${h.date}</td>
+<td>${h.number}</td>
+</tr>
+`
+
+})
+
+document.getElementById("historyTable").innerHTML=html
+
+}
+
+loadHistory()
+
+</script>
+
+</body>
+</html>
