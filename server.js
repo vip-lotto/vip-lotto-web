@@ -8,6 +8,18 @@ const app = express()
 app.use(express.json())
 app.use(express.static("public"))
 
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+app.get("/admin", (req, res) => {
+    if (req.session.user === "admin") {
+        res.sendFile(path.join(__dirname, "public", "admin.html"));
+    } else {
+        res.redirect("/login");
+    }
+});
+
 app.use(session({
  secret: "lotto-secret",
  resave: false,
