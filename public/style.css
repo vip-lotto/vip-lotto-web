@@ -30,5 +30,28 @@ font-size:40px;
 font-weight:bold;
 
 border-radius:10px;
+}
 
+.result-table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 400px;
+    table-layout: fixed;
+    background: #f5f5f5;
+}
+
+.result-table td {
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    font-size: 18px;
+    width: 50%;
+}
+
+.result-table td:first-child {
+    text-align: left;
+}
+
+.result-table td:last-child {
+    text-align: right;
+    font-weight: bold;
 }

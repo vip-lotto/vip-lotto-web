@@ -8,7 +8,7 @@ function spin(){
 
     if(!spinning) return
 
-    for(let i=0;i<6;i++){
+    for(let i=0;i<5;i++){
         document.getElementById("n"+i).innerText = randomDigit()
     }
 
@@ -73,7 +73,7 @@ const now = new Date()
 
         spinning = false
 
-        for(let i=0;i<6;i++){
+        for(let i=0;i<5;i++){
             document.getElementById("n"+i).innerText = 0
         }
 
@@ -90,13 +90,17 @@ const now = new Date()
         spinning = false
 
         const nums = data.number.split("")
+for(let i=0;i<5;i++){
+    document.getElementById("n"+i).innerText = nums[i]
+}
 
-        for(let i=0;i<6;i++){
-            document.getElementById("n"+i).innerText = nums[i]
+document.getElementById("n5_table").innerText = data.number
+document.getElementById("n4_table").innerText = data.number.slice(1)
+document.getElementById("n3_table").innerText = data.number.slice(2)
+document.getElementById("n2t").innerText = data.number.slice(0,2)
+document.getElementById("n2b").innerText = data.number.slice(-2)
         }
 
     }
-
-}
-
+    
 setInterval(check,1000)
