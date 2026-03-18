@@ -8,7 +8,7 @@ function spin(){
 
     if(!spinning) return
 
-    for(let i=0;i<5;i++){
+    for(let i=0;i<6;i++){
         document.getElementById("n"+i).innerText = randomDigit()
     }
 
@@ -73,7 +73,7 @@ const now = new Date()
 
         spinning = false
 
-        for(let i=0;i<5;i++){
+        for(let i=0;i<6;i++){
             document.getElementById("n"+i).innerText = 0
         }
 
@@ -102,5 +102,5 @@ document.getElementById("n2b").innerText = data.number.slice(-2)
         }
 
     }
-    
+
 setInterval(check,1000)
