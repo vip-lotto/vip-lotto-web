@@ -41,8 +41,6 @@ function convertTime(timeStr){
 
 }
 
-
-
 async function check(){
 
  const res = await fetch("/api/data")
