@@ -55,3 +55,19 @@ border-radius:10px;
     text-align: right;
     font-weight: bold;
 }
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.content{
+    width: 600px;
+}
+
+.ads img{
+    width: 220px;
+    display: block;
+    margin-bottom: 15px;
+}
