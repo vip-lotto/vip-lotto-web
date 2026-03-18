@@ -17,19 +17,24 @@ margin-top:40px;
 }
 
 .num{
+    width:80px;
+    height:80px;
 
-width:80px;
-height:80px;
-background:#eee;
+    background: linear-gradient(145deg, #ffffff, #dcdcdc);
+    border-radius:15px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-font-size:40px;
-font-weight:bold;
+    font-size:40px;
+    font-weight:bold;
 
-border-radius:10px;
+    box-shadow: 
+        6px 6px 12px #c8c8c8,
+        -6px -6px 12px #ffffff;
+
+    transition: all 0.2s ease;
 }
 
 .result-table {
@@ -70,4 +75,9 @@ border-radius:10px;
     width: 220px;
     display: block;
     margin-bottom: 15px;
+}
+.num:active{
+    box-shadow:
+        inset 6px 6px 12px #c8c8c8,
+        inset -6px -6px 12px #ffffff;
 }
