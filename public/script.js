@@ -8,7 +8,7 @@ function spin(){
 
     if(!spinning) return
 
-    for(let i=0;i<6;i++){
+    for(let i=0;i<5;i++){
         document.getElementById("n"+i).innerText = randomDigit()
     }
 
@@ -73,7 +73,7 @@ const now = new Date()
 
         spinning = false
 
-        for(let i=0;i<6;i++){
+        for(let i=0;i<5;i++){
             document.getElementById("n"+i).innerText = 0
         }
 
